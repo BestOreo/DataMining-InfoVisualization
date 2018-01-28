@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../lib/nvd3/build/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="../lib/nvd3/build/nv.d3.js"></script>
+
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        html, body, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>2009</h1>
+    <button onclick="window.location.href='../catogary.html'">Catogary</button>
+
+    <button onclick="window.location.href='./2007.html'">Back</button>
+
+    <button onclick="window.location.href='./2011.html'">Continue</button>
+
+<svg id="test1"></svg>
+
+<script>
+    // Example based on http://bl.ocks.org/mbostock/4062045
+    nv.addGraph({
+        generate: function() {
+            var width = nv.utils.windowSize().width - 40,
+                height = nv.utils.windowSize().height - 40;
+
+            var d3Colors = d3.scale.category20();
+            var chart = nv.models.forceDirectedGraph()
+                .width(width)
+                .height(height)
+                .margin({top: 20, right: 20, bottom: 20, left: 20})
+                .color(function(d) { return d3Colors(d.group) })
+                .nodeExtras(function(node) {
+                  node
+                    .append("text")
+                    .attr("dx", 12)
+                    .attr("dy", ".35em")
+                    .text(function(d) { return d.name });
+                });
+
+            chart.dispatch.on('renderEnd', function(){
+                console.log('render complete');
+            });
+
+
+            d3.select('#test1')
+              .attr('width', width)
+              .attr('height', height)
+              .datum(all_data)  // all_data is set below
+              .call(chart);
+
+            return chart;
+        },
+        callback: function(graph) {
+            window.onresize = function() {
+                console.log('fff');
+                var width = nv.utils.windowSize().width - 40,
+                    height = nv.utils.windowSize().height - 40,
+                    margin = graph.margin();
+
+                if (width < margin.left + margin.right + 20)
+                    width = margin.left + margin.right + 20;
+
+                if (height < margin.top + margin.bottom + 20)
+                    height = margin.top + margin.bottom + 20;
+
+                graph.width(width).height(height);
+
+                d3.select('#test1')
+                    .attr('width', width)
+                    .attr('height', height)
+                    .call(graph);
+            };
+        }
+    });
+</script>
+<script>
+var all_data = {
+    "nodes":[
+    {"name":"hackteam","group":0},
+{"name":"@sparkasse.it","group":1},
+{"name":"@cassacentrale.it","group":2},
+{"name":"@HACKINGTEAM.IT","group":3},
+{"name":"@GeneraliGroup.com","group":4},
+{"name":"@cnpcapitaliavita.it","group":5},
+{"name":"@capgemini.com","group":6},
+{"name":"@eon.com","group":7},
+{"name":"@gucci.it","group":8},
+{"name":"@telecomitalia.it","group":9},
+{"name":"@vupen.com","group":10},
+{"name":"@360capitalpartners.com","group":11},
+{"name":"@interno.it","group":12},
+{"name":"@hotmail.com","group":13},
+{"name":"@hotmail.it","group":14},
+{"name":"@carabinieri.it","group":15},
+{"name":"@aditinet.it","group":16},
+{"name":"@nl.ibm.com","group":17},
+{"name":"@verint.com","group":18},
+{"name":"@technesecurity.it","group":19},
+{"name":"@gmail.com","group":20},
+{"name":"@argentea.it","group":21},
+{"name":"@nessus.org","group":22},
+{"name":"@inbox.com","group":23},
+{"name":"@imperva.com","group":24},
+{"name":"@HackingTeam.it","group":25},
+{"name":"@digi.it","group":26},
+{"name":"@eu.didata.com","group":27},
+{"name":"@abi.it","group":28},
+{"name":"@cnpvita.it","group":29},
+{"name":"@polito.it","group":30},
+{"name":"@it.gucci.com","group":31},
+{"name":"@integradm.it","group":32},
+{"name":"@lisit.it","group":33},
+{"name":"@manulistretch.com","group":34},
+{"name":"@libero.it","group":35},
+{"name":"@it.rsagroup.com","group":36},
+{"name":"@rfi.it","group":37},
+{"name":"@tsf.it","group":38},
+{"name":"@ubiss.it","group":39},
+{"name":"@coresecurity.com","group":40},
+{"name":"@securityinnovation.com","group":41},
+{"name":"@livemeeting.com","group":42},
+{"name":"@d2sec.com","group":43},
+{"name":"@sophos.com","group":44},
+{"name":"@aladdin.com","group":45},
+{"name":"@vervata.com","group":46},
+{"name":"@mysql.com","group":47},
+{"name":"@cicomsy.com","group":48},
+{"name":"@mac.com","group":49},
+{"name":"@pcs-security.com","group":50},
+{"name":"@ffpromo.it","group":51},
+{"name":"@yahoo.it","group":52},
+{"name":"@infogestnet.it","group":53},
+{"name":"@me.com","group":54},
+{"name":"@bull.cz","group":55},
+{"name":"@policlinico.mi.it","group":56},
+{"name":"@virgilio.it","group":57},
+{"name":"@etiglobal.net","group":58},
+{"name":"@state.gov","group":59}
+
+],
+        "links":[
+    {"source":0,"target":1,"value":14},
+{"source":0,"target":2,"value":2},
+{"source":0,"target":3,"value":3},
+{"source":0,"target":4,"value":1},
+{"source":0,"target":5,"value":1},
+{"source":0,"target":6,"value":1},
+{"source":0,"target":7,"value":1},
+{"source":0,"target":8,"value":3},
+{"source":0,"target":9,"value":4},
+{"source":0,"target":10,"value":2},
+{"source":0,"target":11,"value":1},
+{"source":0,"target":12,"value":1},
+{"source":0,"target":13,"value":8},
+{"source":0,"target":14,"value":2},
+{"source":0,"target":15,"value":2},
+{"source":0,"target":16,"value":1},
+{"source":0,"target":17,"value":12},
+{"source":0,"target":18,"value":1},
+{"source":0,"target":19,"value":1},
+{"source":20,"target":0,"value":152},
+{"source":20,"target":1,"value":2},
+{"source":20,"target":21,"value":1},
+{"source":22,"target":0,"value":2},
+{"source":23,"target":0,"value":59},
+{"source":24,"target":0,"value":1},
+{"source":25,"target":0,"value":33},
+{"source":25,"target":3,"value":1},
+{"source":26,"target":0,"value":110},
+{"source":27,"target":0,"value":6},
+{"source":28,"target":0,"value":28},
+{"source":29,"target":0,"value":17},
+{"source":29,"target":5,"value":3},
+{"source":29,"target":6,"value":1},
+{"source":30,"target":0,"value":9},
+{"source":31,"target":0,"value":45},
+{"source":32,"target":0,"value":27},
+{"source":33,"target":0,"value":48},
+{"source":33,"target":9,"value":1},
+{"source":34,"target":0,"value":17},
+{"source":35,"target":0,"value":3},
+{"source":36,"target":0,"value":47},
+{"source":21,"target":0,"value":23},
+{"source":21,"target":1,"value":3},
+{"source":37,"target":0,"value":14},
+{"source":37,"target":38,"value":1},
+{"source":38,"target":0,"value":46},
+{"source":39,"target":0,"value":76},
+{"source":40,"target":0,"value":3},
+{"source":41,"target":0,"value":1},
+{"source":42,"target":0,"value":1},
+{"source":43,"target":0,"value":5},
+{"source":44,"target":0,"value":3},
+{"source":45,"target":0,"value":1},
+{"source":46,"target":0,"value":2},
+{"source":47,"target":0,"value":2},
+{"source":48,"target":0,"value":45},
+{"source":49,"target":0,"value":1},
+{"source":50,"target":0,"value":24},
+{"source":51,"target":0,"value":14},
+{"source":52,"target":0,"value":12},
+{"source":53,"target":0,"value":43},
+{"source":54,"target":0,"value":23},
+{"source":55,"target":0,"value":21},
+{"source":56,"target":57,"value":1},
+{"source":56,"target":0,"value":1},
+{"source":58,"target":0,"value":7},
+{"source":59,"target":0,"value":3}
+
+]
+}
+</script>
+
+
+</body>
+</html>

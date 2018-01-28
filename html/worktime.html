@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hacking Team 信息可视化</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<button onclick="window.location.href='../catogary.html'">Catogary</button>
+
+<button onclick="window.location.href='./2011.html'">Back</button>
+
+<button onclick="window.location.href='./develop_inner_outer.html'">Continue</button>
+
+<div id="main" style="width: 1400px;height:600px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+
+
+    option = {
+        title : {
+            text: '工作时间分布',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            orient : 'vertical',
+            x : 'center',
+            y : 'bottom',
+            data:['内部人员工作时间分布','外部人员工作时间分布']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        polar : [
+            {
+                indicator : [
+                    { text: '0', max: 100000},
+                    { text: '1', max: 100000},
+                    { text: '2', max: 100000},
+                    { text: '3', max: 100000},
+                    { text: '4', max: 100000},
+                    { text: '5', max: 100000},
+                    { text: '6', max: 100000},
+                    { text: '7', max: 100000},
+                    { text: '8', max: 100000},
+                    { text: '9', max: 100000},
+                    { text: '10', max: 100000},
+                    { text: '11', max: 100000},
+                    { text: '13', max: 100000},
+                    { text: '14', max: 100000},
+                    { text: '15', max: 100000},
+                    { text: '16', max: 100000},
+                    { text: '17', max: 100000},
+                    { text: '18', max: 100000},
+                    { text: '19', max: 100000},
+                    { text: '20', max: 100000},
+                    { text: '21', max: 100000},
+                    { text: '22', max: 100000},
+                    { text: '23', max: 100000}
+                ]
+            }
+        ],
+        calculable : true,
+        series : [
+            {
+                name: '工作时间分布',
+                type: 'radar',
+                data : [
+                    {
+                        value : [58504,36827,23365,16608,14083,12304,7923,5890,4853,9181,21781,22920,14030,16666,29747,65551,96972,98564,86858,64068,63464,79866,78038,76570],
+                        name : '内部人员工作时间分布'
+                    }
+//                    ,
+//                    {
+//                        value : [10965,8861,6286,5162,4424,3405,2856,2466,2540,2917,3225,3174,3379,4191,5629,9441,12595,15511,13833,11804,12011,13373,13588,12955,],
+//                        name : '外部人员工作时间分布'
+//                    }
+                ]
+            }
+        ]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

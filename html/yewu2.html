@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<button onclick="window.location.href='../catogary.html'">Catogary</button>
+
+<button onclick="window.location.href='./yewu.html'">Back</button>
+
+<button onclick="window.location.href='./client.html'">Continue</button><div id="main" style="width: 1400px;height:600px;"></div><div id="main" style="width: 1400px;height:900px;margin-left: 0%"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+
+    option = {
+        title : {
+            text: '服务对象分类',
+            subtext: '主要国家以及公司',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true,
+                    type: ['pie', 'funnel']
+                },
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        series : [
+            {
+                name:'半径模式',
+                type:'pie',
+                radius : [20, 110],
+                center : ['25%', 200],
+                roseType : 'area',
+                width: '40%',       // for funnel
+                max: 40,            // for funnel
+                itemStyle : {
+                    normal : {
+                        label : {
+                            show : true
+                        },
+                        labelLine : {
+                            show : true
+                        }
+                    },
+                    emphasis : {
+                        label : {
+                            show : true
+                        },
+                        labelLine : {
+                            show : true
+                        }
+                    }
+                },
+
+
+                data:[
+                    {value:20300, name:'阿塞拜疆'},
+                    {value:5069, name:'哈萨克斯坦'},
+                    {value:4223, name:'约旦'},
+                    {value:8253, name:'印度'},
+                    {value:3421, name:'西班牙'},
+                    {value:11713, name:'洪都拉斯'},
+                    {value:1481, name:'华沙'},
+                    {value:12356, name:'泰国'},
+                    {value:8196, name:'孟加拉国'},
+                    {value:3496, name:'危地马拉'}
+
+                    ]
+            },
+            {
+                name:'面积模式',
+                type:'pie',
+                radius : [30, 110],
+                center : ['75%', 200],
+                roseType : 'area',
+                x: '50%',               // for funnel
+                max: 40,                // for funnel
+                sort : 'ascending',     // for funnel
+                data:[
+                    {value:66116, name:'@nice.com'},
+                    {value:27190, name:'@contactcwt.com'},
+                    {value:22420, name:'@carlsonwagonlit.it'},
+                    {value:13986, name:'@dhag.com.vn'},
+                    {value:10865, name:'@gnsegroup.com'},
+                    {value:7137, name:'@tcc-ict.com'},
+                    {value:6341, name:'@robotec.com'},
+                    {value:5623, name:'@samtel.samartcorp.com'}
+                ]
+            }
+        ]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

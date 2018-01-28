@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <title>Hacking Team 信息可视化</title>
+
+   </head>
+   <body style="height: 100%; margin: 0">
+   <button onclick="window.location.href='../catogary.html'">Catogary</button>
+
+   <button onclick="window.location.href='./client.html'">Back</button>
+   <button onclick="window.location.href='./topoStaff.html'">Continue</button>
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/echarts/echarts.js"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/echarts-gl/echarts-gl.js"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="../lib/echarts-examples/public/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+app.title = '笛卡尔坐标系上的热力图';
+
+var nameList=["massimiliano luppi","simonetta gallucci","lucia rana","david vincenzetti","antonella capaldo","giancarlo russo","alessandro scarafile","daniele milan","daniel maglietta","fabio busatto","marco valleri","alex velasco","serge woon","alberto ornaghi","mostapha maanna","fabrizio cornelli","marco bettini","emad shehata","valeriano bedeschi","massimo chiodini","marco catino","bruno muschitiello","antonio mazzeo","ivan speziale","alberto pelliccione","cristian vardaro","eric rabe","philippe vinci","alessandra mino","guido landi","fulvio degiovanni","walter furlan","sergio solis","christian pozzi","diego giubertoni","stefania iannelli","marco losito","elisabetta ciceri","emanuele placidi","eduardo pardo","giovanni cino","daniel martinez","eros marcon","ivan roattino","roby banfi","gianluca vadruccio","marco fontana","matteo oliva","luca guerra","daniele molteni","enrico luzzani","costantino imbrauglio","eugene ho","davide romualdi","danilo cordoni","alfredo pesoli","salvatore rumore","lorenzo invernizzi","gabriele parravicini","gianluca piani","alessandro bassi","luca filippi","antonella citino","federico guerrini","andrea cariola","eva michalikova","tomas valentini","sara galvagna","utente test","serge yun","annalisa mangiacavalli","stefano bagnasco","enrico parentini","claudio agosti","massimiliano oldani","aldo scaccabarozzi","john doe","mauro romeo","philippe antoine vinci","eduardo pardo carvajal","rosario armando viscardi","daniel martinez moreno","andrea di pasquale","fred d'alessio","fulvio de giovanni","utente prova","mustafa maana","fred dalessio","debora leanza","alessandro lomonaco","sergio rodriguez","corrado alesso"];
+var lines = ["发送邮件总量","接收邮件总量","收发邮件总量","发送的人总数","接收到的人总数","平均发给一人邮件数目","平均接收到一人邮件数目"];
+
+var dataAll=[
+    [20326, 26201, 46527, 88, 173, 230.97727272727272,151.4508670520231,"massimiliano luppi"],
+    [17844, 9177, 27021, 64, 162, 278.8125,56.648148148148145,"simonetta gallucci"],
+    [16220, 11055, 27275, 114, 182, 142.28070175438597,60.74175824175824,"lucia rana"],
+    [15964, 12957, 28921, 100, 184, 159.64,70.41847826086956,"david vincenzetti"],
+    [15299, 20087, 35386, 112, 202, 136.59821428571428,99.44059405940594,"antonella capaldo"],
+    [14168, 40366, 54534, 131, 206, 108.1526717557252,195.95145631067962,"giancarlo russo"],
+    [11754, 11448, 23202, 95, 194, 123.72631578947369,59.01030927835052,"alessandro scarafile"],
+    [11254, 4942, 16196, 109, 214, 103.24770642201835,23.093457943925234,"daniele milan"],
+    [10327, 5511, 15838, 56, 147, 184.41071428571428,37.48979591836735,"daniel maglietta"],
+    [9617, 13108, 22725, 130, 224, 73.97692307692307,58.517857142857146,"fabio busatto"],
+    [5961, 13627, 19588, 113, 202, 52.75221238938053,67.46039603960396,"marco valleri"],
+    [5586, 10455, 16041, 67, 121, 83.3731343283582,86.40495867768595,"alex velasco"],
+    [5402, 2913, 8315, 66, 140, 81.84848484848484,20.807142857142857,"serge woon"],
+    [5357, 5465, 10822, 89, 181, 60.19101123595506,30.193370165745858,"alberto ornaghi"],
+    [5343, 6651, 11994, 81, 127, 65.96296296296296,52.37007874015748,"mostapha maanna"],
+    [5229, 6592, 11821, 80, 184, 65.3625,35.82608695652174,"fabrizio cornelli"],
+    [5154, 0, 5154, 65, 131, 79.29230769230769,0.0,"marco bettini"],
+    [5058, 5993, 11051, 47, 132, 107.61702127659575,45.40151515151515,"emad shehata"],
+    [3866, 6275, 10141, 115, 157, 33.61739130434783,39.968152866242036,"valeriano bedeschi"],
+    [2985, 4206, 7191, 105, 170, 28.428571428571427,24.741176470588236,"massimo chiodini"],
+    [2972, 7878, 10850, 62, 141, 47.935483870967744,55.87234042553192,"marco catino"],
+    [2760, 4557, 7317, 78, 158, 35.38461538461539,28.841772151898734,"bruno muschitiello"],
+    [2303, 4688, 6991, 78, 154, 29.525641025641026,30.441558441558442,"antonio mazzeo"],
+    [2103, 2270, 4373, 46, 128, 45.71739130434783,17.734375,"ivan speziale"],
+    [1779, 3439, 5218, 58, 139, 30.67241379310345,24.741007194244606,"alberto pelliccione"],
+    [1212, 6, 1218, 27, 117, 44.888888888888886,0.05128205128205128,"cristian vardaro"],
+    [1199, 0, 1199, 16, 49, 74.9375,0.0,"eric rabe"],
+    [1175, 1, 1176, 10, 1, 117.5,1.0,"philippe vinci"],
+    [888, 5, 893, 8, 81, 111.0,0.06172839506172839,"alessandra mino"],
+    [840, 2751, 3591, 39, 117, 21.53846153846154,23.512820512820515,"guido landi"],
+    [834, 43, 877, 54, 1, 15.444444444444445,43.0,"fulvio degiovanni"],
+    [829, 2954, 3783, 38, 135, 21.81578947368421,21.881481481481483,"walter furlan"],
+    [727, 3748, 4475, 27, 67, 26.925925925925927,55.940298507462686,"sergio solis"],
+    [689, 6, 695, 17, 102, 40.529411764705884,0.058823529411764705,"christian pozzi"],
+    [678, 1960, 2638, 32, 113, 21.1875,17.345132743362832,"diego giubertoni"],
+    [664, 45, 709, 25, 92, 26.56,0.4891304347826087,"stefania iannelli"],
+    [628, 4, 632, 24, 97, 26.166666666666668,0.041237113402061855,"marco losito"],
+    [486, 1246, 1732, 9, 99, 54.0,12.585858585858587,"elisabetta ciceri"],
+    [417, 2, 419, 16, 98, 26.0625,0.02040816326530612,"emanuele placidi"],
+    [414, 0, 414, 4, 0, 103.5,0.0,"eduardo pardo"],
+    [399, 628, 1027, 32, 114, 12.46875,5.508771929824562,"giovanni cino"],
+    [376, 0, 376, 5, 0, 75.2,0.0,"daniel martinez"],
+    [374, 3217, 3591, 34, 124, 11.0,25.943548387096776,"eros marcon"],
+    [373, 688, 1061, 52, 45, 7.173076923076923,15.28888888888889,"ivan roattino"],
+    [334, 910, 1244, 61, 55, 5.475409836065574,16.545454545454547,"roby banfi"],
+    [312, 381, 693, 47, 31, 6.638297872340425,12.290322580645162,"gianluca vadruccio"],
+    [311, 7, 318, 14, 89, 22.214285714285715,0.07865168539325842,"marco fontana"],
+    [242, 719, 961, 44, 127, 5.5,5.661417322834645,"matteo oliva"],
+    [238, 448, 686, 13, 104, 18.307692307692307,4.3076923076923075,"luca guerra"],
+    [234, 1567, 1801, 26, 119, 9.0,13.168067226890756,"daniele molteni"],
+    [200, 1210, 1410, 40, 39, 5.0,31.025641025641026,"enrico luzzani"],
+    [166, 141, 307, 37, 29, 4.486486486486487,4.862068965517241,"costantino imbrauglio"],
+    [136, 4, 140, 4, 55, 34.0,0.07272727272727272,"eugene ho"],
+    [121, 14, 135, 3, 61, 40.333333333333336,0.22950819672131148,"davide romualdi"],
+    [120, 413, 533, 41, 46, 2.926829268292683,8.978260869565217,"danilo cordoni"],
+    [108, 162, 270, 45, 34, 2.4,4.764705882352941,"alfredo pesoli"],
+    [76, 416, 492, 50, 50, 1.52,8.32,"salvatore rumore"],
+    [75, 15, 90, 8, 106, 9.375,0.14150943396226415,"lorenzo invernizzi"],
+    [66, 111, 177, 21, 12, 3.142857142857143,9.25,"gabriele parravicini"],
+    [46, 117, 163, 9, 23, 5.111111111111111,5.086956521739131,"gianluca piani"],
+    [44, 2, 46, 0, 50, 0.0,0.04,"alessandro bassi"],
+    [39, 23, 62, 9, 3, 4.333333333333333,7.666666666666667,"luca filippi"],
+    [33, 17, 50, 3, 5, 11.0,3.4,"antonella citino"],
+    [33, 110, 143, 17, 14, 1.9411764705882353,7.857142857142857,"federico guerrini"],
+    [30, 108, 138, 20, 14, 1.5,7.714285714285714,"andrea cariola"],
+    [21, 123, 144, 12, 12, 1.75,10.25,"eva michalikova"],
+    [19, 172, 191, 30, 34, 0.6333333333333333,5.0588235294117645,"tomas valentini"],
+    [13, 8, 21, 8, 59, 1.625,0.13559322033898305,"sara galvagna"],
+    [12, 2, 14, 1, 6, 12.0,0.3333333333333333,"utente test"],
+    [11, 0, 11, 2, 0, 5.5,0.0,"serge yun"],
+    [10, 28, 38, 22, 17, 0.45454545454545453,1.6470588235294117,"annalisa mangiacavalli"],
+    [9, 48, 57, 0, 12, 0.0,4.0,"stefano bagnasco"],
+    [4, 0, 4, 0, 55, 0.0,0.0,"enrico parentini"],
+    [4, 117, 121, 2, 7, 2.0,16.714285714285715,"claudio agosti"],
+    [2, 113, 115, 3, 6, 0.6666666666666666,18.833333333333332,"massimiliano oldani"],
+    [1, 36, 37, 16, 6, 0.0625,6.0,"aldo scaccabarozzi"],
+    [1, 0, 1, 3, 0, 0.3333333333333333,0.0,"john doe"],
+    [0, 4, 4, 0, 196, 0.0,0.02040816326530612,"mauro romeo"],
+    [0, 0, 0, 0, 78, 0.0,0.0,"philippe antoine vinci"],
+    [0, 0, 0, 0, 101, 0.0,0.0,"eduardo pardo carvajal"],
+    [0, 0, 0, 0, 64, 0.0,0.0,"rosario armando viscardi"],
+    [0, 0, 0, 0, 62, 0.0,0.0,"daniel martinez moreno"],
+    [0, 0, 0, 0, 103, 0.0,0.0,"andrea di pasquale"],
+    [0, 0, 0, 0, 0, 0.0,0.0,"fred d'alessio"],
+    [0, 0, 0, 0, 91, 0.0,0.0,"fulvio de giovanni"],
+    [0, 0, 0, 0, 1, 0.0,0.0,"utente prova"],
+    [0, 1, 1, 0, 1, 0.0,1.0,"mustafa maana"],
+    [0, 5, 5, 0, 12, 0.0,0.4166666666666667,"fred dalessio"],
+    [0, 88, 88, 0, 8, 0.0,11.0,"debora leanza"],
+    [0, 4, 4, 0, 2, 0.0,2.0,"alessandro lomonaco"],
+    [0, 63, 63, 0, 3, 0.0,21.0,"sergio rodriguez"],
+    [0, 4, 4, 0, 2, 0.0,2.0,"corrado alesso"]
+];
+var data=[];
+var maxAxis=[]
+for (var i=0;i<dataAll[0].length;i++)
+{
+    var maxNumber=dataAll[0][i];
+    for(var j=0;j<dataAll.length;j++)
+    {
+        maxNumber=Math.max(maxNumber,dataAll[j][i])
+    }
+    maxAxis.push(maxNumber)
+}
+
+for(var i=0;i<dataAll.length;i++)
+{
+    for(var j=0;j<dataAll[i].length-1;j++)
+    {
+        data.push([i,j,(dataAll[i][j]*10/maxAxis[j])||"-"])
+    }
+}
+
+
+option = {
+    title: {
+        text: '内部员工重要性',
+        //subtext: 'Circular layout',
+        // top: 'bottom',
+        // left: 'up'
+        align:"left"
+    },
+    tooltip: {
+        position: function(point, params, dom) {
+            if(params.data[1]<6)
+            {
+                return 'top';
+            }
+            else{
+                return 'bottom';
+            }
+        },
+        formatter: function (obj) {
+            var template="<div>" +
+                "<p>Name:[name]</p>" +
+                "<p>[Axis]:[Value]</p>"+
+                "</div>";
+
+            var ans=template.replace("[name]",nameList[obj.data[0]])
+                .replace("[Axis]",lines[obj.data[1]])
+                .replace("[Value]",dataAll[obj.data[0]][obj.data[1]]);
+            return ans;
+        }
+    },
+    dataZoom:{
+      xAxisIndex:[0],
+      type:'slider',
+        start:0,
+        end:20
+    },
+    animation: false,
+    grid: {
+        left:'15%',
+        height: '60%',
+        y: '10%'
+    },
+    xAxis: {
+        type: 'category',
+        data: nameList,
+        splitArea: {
+            show: true
+        },
+        axisLabel:{
+            interval:0,
+            rotate:40
+        }
+    },
+    yAxis: {
+        type: 'category',
+        data: lines,
+        splitArea: {
+            show: true
+        }
+    },
+    visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'vertical',
+        left: 'left',
+        bottom: '15%'
+    },
+    series: [{
+        name: 'Punch Card',
+        type: 'heatmap',
+        data: data,
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        itemStyle: {
+            emphasis: {
+                shadowBlur: 10,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+        }
+    }]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+    myChart.on('click',function(params)
+    {
+        console.log(params);
+    });
+}
+       </script>
+   </body>
+</html>
