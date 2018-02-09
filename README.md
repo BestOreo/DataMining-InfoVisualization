@@ -13,12 +13,12 @@ One of charts in html:
 
 
 ## Data Mining and Visualization of Emails in Hacking Team
-### Chapter I、Abstract
-Hacking Team is an information technology company from Milan, Italy, which provides information systems intrusion and surveillance services to government agencies and law enforcement agencies. It helps customers to intercept Internet users, decrypt files, listen to Internet calls such as Skype, and even Turn on the microphone and camera remotely. On July 5, 2015, Hacking Team's official Twitter account was compromised by unidentified individuals, who used it to reveal many of the company's insider information and informed the company that its internal data had been leaked. The first notice states: "Anyway, we have nothing to hide, and we have to publish our emails, files, and source code ..." along with a download link for nearly 400G of data, including the intruder's alleged Internal e-mail, various related documents and source code.<br/> 
+### Chapter I Abstract
+Hacking Team is an information technology company from Milan, Italy, which provides information systems intrusion and surveillance services to government agencies and law enforcement agencies. It helps customers to intercept Internet users, decrypt files, monitor to Internet calls such as Skype, and even turn on the microphone and camera remotely. On July 5, 2015, Hacking Team's official Twitter account was compromised by unidentified individuals, who used it to reveal many of the company's insider information and informed the company that its internal data had been leaked. The first notice states: "Anyway, we have nothing to hide, and we have to publish our emails, files, and source code ..." along with a download link for nearly 400G of data, including the intruder's alleged Internal e-mail, various related documents and source code.<br/> 
 
 This particular data breach has aroused widespread concern in the community. One of the hot topics is how to decrypt Hacking Team's organizational structure and development process. Hacking Team's in-house email data is an important data source to understand the company, not only reflecting the complex communications network between employees and business partners, but also understanding the company's business content from email content and attachments. We did a preliminary formatting of the original mail data, but analyzing and understanding the mail data is still a very difficult task. Therefore, we provide formatted mail data provided, hope that participants as a data analyst, the use of visual analysis technology to analyze e-mail data to help us understand the history of Hacking Team Company and the various stages of business characteristics, identify the Inside the company's key figures and reasoning about their role and job responsibilities.
 
-#### Chapter II、Thought Introduction
+#### Chapter II Thought Introduction
 This question is given to 59 csv files, a total of more than 10 million e-mail, so a huge amount of unstructured chaotic data. As the saying goes, see the issue from a different perspective. Our group decided to cut into topics from multiple dimensions, digging through the information in the email from different perspectives and then using reasonable visualization to show the data. We mainly use python for data mining, data visualization using html / css / javascript and third-party libraries d3.js, NVD, and Echart.
 
 ##### 2.1 classification work, the classification of personnel, the establishment of topological relations
@@ -45,7 +45,7 @@ According to the segmentation point of the company's general plan as a critical 
 
 Hacking Team is a hacker technology company, then the company's internal mail there will inevitably be a large number of operating systems, hacking techniques related vocabulary. We filter out these terms for statistics and classification to determine Hacking Team's work business, business changes, means of attack and the target platform and other information.
 
-#### Chapter III, Introduction to Visual Engineering
+#### Chapter III Introduction to Visual Engineering
 
 ##### 3.1 Hacking Team Development Overview
 
@@ -62,7 +62,7 @@ In the next series of diagrams, each point represents a mailbox suffix, and the 
 ##### 3.2 Working hours
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/7.png)
 
-According to the company's internal staff to send mail time we found Hacking Team's staff will work from 17:00 to zero. Why is this because programmers are night owls?<br/> 
+According to the company's internal staff to send mail time we found Hacking Team's staff usually work from 17:00 to 24:00. **Why? Is this because programmers are night owls?<br/> **
 
 We found in the following mining of customer sources, the United States is Hacking Team's largest source of customers and business countries. The 17 o'clock Italian time is just 8 o'clock local time in San Francisco, New York local time 11 o'clock. Therefore, we speculate that the business relationship between Hacking Team and a large number of U.S. clients during this time period is the reason why the Hacking Team is in a day and night timetable.
 
@@ -173,11 +173,11 @@ After the show, despite the busy week of exams, we also modified several html ba
 ### Chapter V, Difficulties and Summary
 When I did this project, I actually encountered a lot of difficulties.
 
-In fact, initially we do not have a good command of some web languages such asHTML, CSS, JavaScript and the understanding of the websites is relatively limited. But fortunately these languages are not difficult to learn. Through the project, we finally got a better understanding of these languages.<br/>
+In fact, initially we do not have a good command of some web languages such as HTML, CSS, JavaScript and the understanding of the websites is relatively limited. But fortunately these languages are not difficult to learn. Through the project, we finally got a better understanding of these languages.<br/>
 
 Later in the process of doing the questions, we actually did not have a very good solution to the problem at the beginning, and the entire team was in a rather dizzy state. We just started from the Internet to find a lot of visual example, to see what can be used to our data, if you can try it, but later found only more fragmented analysis, did not form a good overall idea .<br/>
 
-The biggest challenge is how to extract and classify valid information from over 10 million pieces of messy e-mail messages. At the beginning of our thinking there was a deviation, that should be grouped in accordance with the year the title information, so there are 15 groups, each group separately carried out is unintelligible. Second, in 2004 and 2005, for example, these two years are still the start-ups of the company. Therefore, it is unscientific to separate these two years. The phased approach to science should be based on turning points. When we figure out the following figure, we take the turning point of the company's development as the dividing line to calculate the word frequency, and the statistical result is convincing.<br/>
+The biggest challenge is how to extract and classify valid information from over 10 million pieces of messy e-mail messages. At the beginning of our thinking there was a incorrect deviation that emails should be grouped in accordance with the year and the title information, so there are 15 groups, which is  unintelligible. Second, in 2004 and 2005, for example, these two years are still the start-ups of the company. Therefore, it is unscientific to separate these into two years. The phased approach to science should be based on turning points. When we figure out the following figure, we take the turning point of the company's development as the dividing line to calculate the word frequency, and the statistical result is convincing.<br/>
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/26.png)
 
 Later, we finally came to form our own thinking, that is, what kind of analysis we should carry out with these figures, and what conclusion we can draw, so that we can think further about new points for visualization.<br/>
@@ -186,9 +186,9 @@ Of course, there are some ideas from the final realization is still a long dista
 
 One of the difficulties is that the title is mixed in Italian and English. After we screened the key words in different stages, we translated these related words (Italian) into Google Machine and identified some important information with the naked eye, such as the names of some countries (the same country in the mail may have English and Italian Two kinds of representation. Some of the hacking keywords are also carried out separately, and then re-search the massive data statistics.<br/>
 
-Although we encountered a lot of difficulties in this one, we are very grateful to this project, so that we have learned a lot. The project not only brought us a great improvement from the technical level, such as front-end, Python and other programming proficiency increases, but also for our data analysis, data visualization has greatly improved. In fact, the subject is still a relatively raw csv data, which requires us to work on a lot of effort in data processing. As for the selection and design of specific visualization models, a great deal of what teachers say in class is used. To tell the truth, the teacher told a lot about the principles and knowledge of visualization in class. At first glance, it feels very simple and natural. However, it is natural to learn how to visualize. However, after this process of application, Speaking of knowledge has a more profound understanding, this feeling is actually very good.<br/>
+Although we encountered a lot of difficulties in this project, we are very grateful to this project from which we have learned a lot. The project not only brought us a great improvement from the technical level, such as front-end, Python and other programming proficiency increases, but also for our data analysis, data visualization has greatly improved. In fact, the subject is still a relatively raw csv data, which requires us to work on a lot of effort in data processing. As for the selection and design of specific visualization models, a great deal of what teachers say in class is used. To tell the truth, the teacher told a lot about the principles and knowledge of visualization in class. At first glance, it feels very simple and natural. However, it is natural to learn how to visualize. After this process of application, we have a better understanding of basic principles of data visualization.<br/>
 
-Finally, there is a deeper feeling that good visualization must be done while analyzing and analyzing, not from data to conclusion. Based on some preliminary analysis, depending on the specific goals, we hope to add some more features and elements, and then generate more useful information. Good visualization is by no means obtained directly from the data, but rather continuously improved.<br/>
+Finally, there is a deeper feeling that good visualization must be done after thinking and analyzing rather than directly from data to conclusion. Based on some preliminary analysis, depending on the specific goals, we hope to add some more detailed features and elements, and then generate more useful information. Good visualization is by no means obtained directly from the data, but rather continuously improved.<br/>
 
 
 ### HACKING TEAM 邮件信息可视化
