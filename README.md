@@ -14,7 +14,7 @@ One of charts in html:
 
 ## Data Mining and Visualization of Emails in Hacking Team
 ### Chapter I、Abstract
-Hacking Team is an information technology company from Milan, Italy, which provides information systems intrusion and surveillance services to government agencies and law enforcement agencies. It helps customers to intercept Internet users, decrypt files, listen to Internet calls such as Skype, and even Turn on the microphone and camera remotely. On July 5, 2015, Hacking Team's official Twitter account was compromised by unidentified individuals, who used it to reveal many of the company's insider information and informed the company that its internal data had been leaked. The first notice states: "Anyway, we have nothing to hide, and we have to publish our emails, files, and source code ..." along with a download link for nearly 400G of data, including the intruder's alleged Internal e-mail, various related documents and source code.
+Hacking Team is an information technology company from Milan, Italy, which provides information systems intrusion and surveillance services to government agencies and law enforcement agencies. It helps customers to intercept Internet users, decrypt files, listen to Internet calls such as Skype, and even Turn on the microphone and camera remotely. On July 5, 2015, Hacking Team's official Twitter account was compromised by unidentified individuals, who used it to reveal many of the company's insider information and informed the company that its internal data had been leaked. The first notice states: "Anyway, we have nothing to hide, and we have to publish our emails, files, and source code ..." along with a download link for nearly 400G of data, including the intruder's alleged Internal e-mail, various related documents and source code.<br/> 
 
 This particular data breach has aroused widespread concern in the community. One of the hot topics is how to decrypt Hacking Team's organizational structure and development process. Hacking Team's in-house email data is an important data source to understand the company, not only reflecting the complex communications network between employees and business partners, but also understanding the company's business content from email content and attachments. We did a preliminary formatting of the original mail data, but analyzing and understanding the mail data is still a very difficult task. Therefore, we provide formatted mail data provided, hope that participants as a data analyst, the use of visual analysis technology to analyze e-mail data to help us understand the history of Hacking Team Company and the various stages of business characteristics, identify the Inside the company's key figures and reasoning about their role and job responsibilities.
 
@@ -23,13 +23,13 @@ This question is given to 59 csv files, a total of more than 10 million e-mail, 
 
 ##### 2.1 classification work, the classification of personnel, the establishment of topological relations
 
-This work is time-consuming and tedious. We carefully analyzed the mail address and display, found that if the address stage '/ 0 = HACKINGTEAM' is at the beginning, then this mail must be internal mail. Second, I found that if not, this format can not rule out the possibility of internal mail, because there is still a '@ hackingteam' for the domain name of the mailbox. We find it very puzzling to find out that '/ 0 = HACKINGTEAM' can be classified as '@ hackingteam.com' and '@ hackingteam.it' as it is Italian domain name, so this is also internal mails.
+This work is time-consuming and tedious. We carefully analyzed the mail address and display, found that if the address stage '/ 0 = HACKINGTEAM' is at the beginning, then this mail must be internal mail. Second, I found that if not, this format can not rule out the possibility of internal mail, because there is still a '@ hackingteam' for the domain name of the mailbox. We find it very puzzling to find out that '/ 0 = HACKINGTEAM' can be classified as '@ hackingteam.com' and '@ hackingteam.it' as it is Italian domain name, so this is also internal mails.<br/> 
 
-Therefore, an e-mail is separated from the recipient, copying email, the sender, then the e-mail is divided into many e-mails. We believe that the recipient and the sender are internal staff is the internal mail.
+Therefore, an e-mail is separated from the recipient, copying email, the sender, then the e-mail is divided into many e-mails. We believe that the recipient and the sender are internal staff is the internal mail.<br/> 
 
-Then staff classification. First of all, we can confirm that the list of 59 csv personnel must be insiders. But after rough screening I found that there are many internal staff. This step is the basis for future work, so need to have both: 1 full name, 2 mailbox list was considered a legitimate internal staff. The screening process is divided into three steps: 1. Filter out all the address columns starting with '/ O = HACKINGTEAM', find the names of the people they contain, and convert them to the '@ hackingteam.com' mailbox. 2. Re-filter the address column, will be processed in addition to the first step into a list of mail. 3. Re-filter the display column, pulled into a list. Finally, the most important merge operation, I first go to the address list to find, if it contains 'hackingteam', then extract the name (this step is likely abbreviation), and then go to the display to find the full name (abbreviation need to match The first letter), if you can match, add this person, or add the mailbox.
+Then staff classification. First of all, we can confirm that the list of 59 csv personnel must be insiders. But after rough screening I found that there are many internal staff. This step is the basis for future work, so need to have both: 1 full name, 2 mailbox list was considered a legitimate internal staff. The screening process is divided into three steps: 1. Filter out all the address columns starting with '/ O = HACKINGTEAM', find the names of the people they contain, and convert them to the '@ hackingteam.com' mailbox. 2. Re-filter the address column, will be processed in addition to the first step into a list of mail. 3. Re-filter the display column, pulled into a list. Finally, the most important merge operation, I first go to the address list to find, if it contains 'hackingteam', then extract the name (this step is likely abbreviation), and then go to the display to find the full name (abbreviation need to match The first letter), if you can match, add this person, or add the mailbox.<br/> 
 
-Segmentation of internal staff is difficult because we do not have specific email content, which can only be guessed based on titles. If a person has a large number of emails and received and he/she also has a lot of people contacting with him/her, the person must has high status in this company.
+Segmentation of internal staff is difficult because we do not have specific email content, which can only be guessed based on titles. If a person has a large number of emails and received and he/she also has a lot of people contacting with him/her, the person must has high status in this company.<br/> 
 
 By counting up the the mails within the company can we get the topology.
 
@@ -49,9 +49,9 @@ Hacking Team is a hacker technology company, then the company's internal mail th
 
 ##### 3.1 Hacking Team Development Overview
 
-Hacking Team is a hacker technology company in Italy that provides hacking services to the governments. The company was firstly founded in 2001, when the company only had two founders.
+Hacking Team is a hacker technology company in Italy that provides hacking services to the governments. The company was firstly founded in 2001, when the company only had two founders.<br/> 
 
-In the next series of diagrams, each point represents a mailbox suffix, and the connection between the two points represents the connection between the companies. The coarsest connection means the closer the relationship is. We tested the Hacking Team's business scale and the trading partner's service status between 2001 and 2015, and it is clear that Hacking Team's size has evolved over time. Since 2005, Hacking Team has started to grow quickly. By 2009, it has already had a relatively large number of customers. After that, it has entered its first period of upward development. The result of 2011 has surprised us very much. Afterwards, the customers The number is even more huge.
+In the next series of diagrams, each point represents a mailbox suffix, and the connection between the two points represents the connection between the companies. The coarsest connection means the closer the relationship is. We tested the Hacking Team's business scale and the trading partner's service status between 2001 and 2015, and it is clear that Hacking Team's size has evolved over time. Since 2005, Hacking Team has started to grow quickly. By 2009, it has already had a relatively large number of customers. After that, it has entered its first period of upward development. The result of 2011 has surprised us very much. Afterwards, the customers The number is even more huge.<br/> 
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/%E5%9B%BE%E7%89%87%201.png)
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/2.png)
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/3.png)
@@ -62,14 +62,14 @@ In the next series of diagrams, each point represents a mailbox suffix, and the 
 ##### 3.2 Working hours
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/7.png)
 
-According to the company's internal staff to send mail time we found Hacking Team's staff will work from 17:00 to zero. Why is this because programmers are night owls?
+According to the company's internal staff to send mail time we found Hacking Team's staff will work from 17:00 to zero. Why is this because programmers are night owls?<br/> 
 
 We found in the following mining of customer sources, the United States is Hacking Team's largest source of customers and business countries. The 17 o'clock Italian time is just 8 o'clock local time in San Francisco, New York local time 11 o'clock. Therefore, we speculate that the business relationship between Hacking Team and a large number of U.S. clients during this time period is the reason why the Hacking Team is in a day and night timetable.
 
 ##### 3.3 Hacking Team Mail Overview
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/8.png)
 
-Through this picture, we can overview the development process of Hacking Team. The blue bar represents the total amount of emails in the current month, and the yellow line represents the number of active internal staffs in the current month. The total number of internal staff at the time of the start-up only two people, after the gradual expansion of the size of the ranks of development, at its highest reached more than 90 people. From the company's mail growth situation, there are four main stages, three turning points.
+Through this picture, we can overview the development process of Hacking Team. The blue bar represents the total amount of emails in the current month, and the yellow line represents the number of active internal staffs in the current month. The total number of internal staff at the time of the start-up only two people, after the gradual expansion of the size of the ranks of development, at its highest reached more than 90 people. From the company's mail growth situation, there are four main stages, three turning points.<br/> 
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/9.png)
 
 ##### 3.4 Stage Business Overview
@@ -88,25 +88,25 @@ The first stage: 2001 / 01-2013 / 06 start-up period
 
 From the first phase of the company word cloud you can find:
 
-(1) Azerbaijan, India, Kuwait, Oman, Israel, Georgia, HT are the main communication countries, indicating that the key clients of the hacking team in the business start-up are likely to come from India, Azerbaijan, Kuwait, Oman, Israel, Georgia, Haiti and other countries .
-(2) It can also be seen from keywords such as Expression of Interest, Delivery Azerbaijan, Azerbaijan Delivery Confirmation, Presentations and Demonstrations, etc. The company is expressing its interest to partners, confirming information transmission and delivery, and demonstrating and demonstrating the company's capabilities. Seen in this light, the stage of the company more focused on external business development and customer contact.
-(3) There are also some specific projects carried out by the company. It can be seen from Corsi prossima settimana, Rosso Pomodoro and Prototipo valigetta that the company has conducted a series of courses entitled "Lessons for next week", "red tomatoes" and "prototype briefcase" Business projects, because of the specific security issues involved, therefore using the action code to represent a business.
-(4) In the specific business forms, the company's main business is still RCS.
+(1) Azerbaijan, India, Kuwait, Oman, Israel, Georgia, HT are the main communication countries, indicating that the key clients of the hacking team in the business start-up are likely to come from India, Azerbaijan, Kuwait, Oman, Israel, Georgia, Haiti and other countries .<br/> 
+(2) It can also be seen from keywords such as Expression of Interest, Delivery Azerbaijan, Azerbaijan Delivery Confirmation, Presentations and Demonstrations, etc. The company is expressing its interest to partners, confirming information transmission and delivery, and demonstrating and demonstrating the company's capabilities. Seen in this light, the stage of the company more focused on external business development and customer contact.<br/> 
+(3) There are also some specific projects carried out by the company. It can be seen from Corsi prossima settimana, Rosso Pomodoro and Prototipo valigetta that the company has conducted a series of courses entitled "Lessons for next week", "red tomatoes" and "prototype briefcase" Business projects, because of the specific security issues involved, therefore using the action code to represent a business.<br/> 
+(4) In the specific business forms, the company's main business is still RCS.<br/> 
 
 The second stage: 2013 / 07-2014 / 01 rapid development period
 
 From the second phase of the company word cloud can be found:
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/13.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/13.png)
 
 
-(1) From the key words such as Mobile Hacking, AV Monitor, hardware test, BIOS, Mac and PC, the company conducts business invasion through these forms.
-(2) From the DAP, it can be found that the way the company attacks is mainly data acquisition and processing.
-(3) From Moldova, Slovacchia, Guatemala, HT, it can be seen that the companies in this phase of the company's business are located in the country of the company.
-(4) Noting Delivery and Training is an important topic, the company is likely to focus on project delivery and software usage training for business members during this time.
-(5) There are also some action codes that we can not infer from specific business, such as: sulcorriere
+(1) From the key words such as Mobile Hacking, AV Monitor, hardware test, BIOS, Mac and PC, the company conducts business invasion through these forms.<br/> 
+(2) From the DAP, it can be found that the way the company attacks is mainly data acquisition and processing.<br/> 
+(3) From Moldova, Slovacchia, Guatemala, HT, it can be seen that the companies in this phase of the company's business are located in the country of the company.<br/> 
+(4) Noting Delivery and Training is an important topic, the company is likely to focus on project delivery and software usage training for business members during this time.<br/> 
+(5) There are also some action codes that we can not infer from specific business, such as: sulcorriere<br/> 
 
 The third stage: 2014 / 02-2014 / 05
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/14.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/14.png)
 
 The third phase of the company in the state of the business is slightly tightened, the word cloud can be found in its business as follows:
 
@@ -117,37 +117,38 @@ The third phase of the company in the state of the business is slightly tightene
 
 The fourth stage: 2014 / 06-2016
 ! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/15.png)
-The fourth phase is the most important core business phase of the company, with a dramatic increase in the volume of mail at this stage.
+The fourth phase is the most important core business phase of the company, with a dramatic increase in the volume of mail at this stage.<br/> 
 
-(1) First, the company's popular e-mail topics at this stage are largely related to life, Pranzo gioved (Thursday lunch), E Max si sposa! (Bride of Max Max), Arrivederci (goodbye) From the point of view of the number of e-mails, it is a well-deserved "big theme" in terms of the entire company's development history. But do not rule out the possibility of action code.
-(2) The countries contacted are mainly Puma, Kazakstan, BAJA (a Hungarian city), HT and so on.
-(3) In terms of business, the terms DAT document, demo, Urgent, Draft Contract, Delivery & Installation indicate that the company drafted a variety of businesses from document drafting to project delivery at this stage.
-(4) There are also many less understood topics during this period, such as Global Protect for Yosemite, Tramezzino, which is likely to be the action code for the project. (5) Campagna elettorale !!! The subject matter is likely to be related to the company's internal campaign.
+(1) First, the company's popular e-mail topics at this stage are largely related to life, Pranzo gioved (Thursday lunch), E Max si sposa! (Bride of Max Max), Arrivederci (goodbye) From the point of view of the number of e-mails, it is a well-deserved "big theme" in terms of the entire company's development history. But do not rule out the possibility of action code.<br/> 
+(2) The countries contacted are mainly Puma, Kazakstan, BAJA (a Hungarian city), HT and so on.<br/> 
+(3) In terms of business, the terms DAT document, demo, Urgent, Draft Contract, Delivery & Installation indicate that the company drafted a variety of businesses from document drafting to project delivery at this stage.<br/> 
+(4) There are also many less understood topics during this period, such as Global Protect for Yosemite, Tramezzino, which is likely to be the action code for the project. <br/> 
+(5) Campagna elettorale !!! The subject matter is likely to be related to the company's internal campaign.<br/> 
 
 ##### 3.5 business statistics (means of attack and platform)
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/16.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/16.png)
 
 Hacking Team, a company that provides surveillance, hacking, and information security services primarily to governments, uses Rcs, virus and our common trojan, wap, malware, dos attacks and more. Its main operating platform skype, windowsphone, android, blackberry, synbian, windows, linux, ios and so on.
 
 ##### 3.6 Business Statistics (client)
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/17.png)
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/18.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/17.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/18.png)
 
 These eight email suffixes are the eight email suffixes most relevant to the Hacking Team. Nice, an AI service and visual data company, guessed that the Hacking Team company had a lot of monitoring material available to nice companies for data visualization. (Haha ~) dhag is probably Marathi in India, and .vn is Vietnam's domain name, which should be Vietnam's mailbox. Gnse is an information security services company. Robottec is a robotics company.
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/19.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/19.png)
 
 ##### 3.7 Business Statistics (client time development)
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/20.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/20.png)
 
 By 2010, Hacking Team was still small and took up a relatively small amount of international business. After 2010, it will take over a lot of international business. Among them, the United States has the largest volume of business, followed by Oman, Thailand, Azerbaijan and Italy.
 
 Although the title only gave us 59 csv files, but according to the mining situation, we found that the number of people in the company actually more than 90 people, then how to show the importance of internal staff?
 
 ##### 3.8 The importance of company employees map
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/21.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/21.png)
 
 We set the total amount of mail to be sent, the total amount of mail received, the total amount of mail sent and received, the total number of people sent, the total number of mail recipients sent, the total number of sent / sent, the total accepted / the total number of senders Seven dimensions are used thermographs to show all internal employees send and receive e-mail situation.
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/22.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/22.png)
 
 We can find the top 11 individuals must be the company's executives.
 
