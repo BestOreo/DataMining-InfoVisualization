@@ -108,15 +108,15 @@ From the second phase of the company word cloud can be found:
 The third stage: 2014 / 02-2014 / 05
 ![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/14.png)
 
-The third phase of the company in the state of the business is slightly tightened, the word cloud can be found in its business as follows:
+The third phase of the company in the state of the business is slightly tightened, the word cloud can be found in its business as follows:<br/> 
 
-(1) There are some specific business projects, the action code: compagni di pranzo, Italian Lasagna, Olimpia Marcon
-(2) The main business countries are: Puma, Indonesia, Ecuador, Malaysia, Azerbaijan, Uzbeki, etc., indicating that the business scope has been expanded during this period.
-(3) For the specific business, note that the keywords delivery, Proposal, Situation, Payment, maintenance, training, Specifications, Tentative date indicate that the company in this period is expanding its business to more countries, taking over new projects, Communication Identify the characteristics of the project; deliver and train the ongoing project; maintain the previous project.
-(4) For the specific business forms, it is still dominated by RCS, and at the same time, the support for URLs has been added.
+(1) There are some specific business projects, the action code: compagni di pranzo, Italian Lasagna, Olimpia Marcon.<br/> 
+(2) The main business countries are: Puma, Indonesia, Ecuador, Malaysia, Azerbaijan, Uzbeki, etc., indicating that the business scope has been expanded during this period.<br/> 
+(3) For the specific business, note that the keywords delivery, Proposal, Situation, Payment, maintenance, training, Specifications, Tentative date indicate that the company in this period is expanding its business to more countries, taking over new projects, Communication Identify the characteristics of the project; deliver and train the ongoing project; maintain the previous project.<br/> 
+(4) For the specific business forms, it is still dominated by RCS, and at the same time, the support for URLs has been added.<br/> 
 
 The fourth stage: 2014 / 06-2016
-! [pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/15.png)
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/15.png)
 The fourth phase is the most important core business phase of the company, with a dramatic increase in the volume of mail at this stage.<br/> 
 
 (1) First, the company's popular e-mail topics at this stage are largely related to life, Pranzo gioved (Thursday lunch), E Max si sposa! (Bride of Max Max), Arrivederci (goodbye) From the point of view of the number of e-mails, it is a well-deserved "big theme" in terms of the entire company's development history. But do not rule out the possibility of action code.<br/> 
@@ -153,6 +153,42 @@ We set the total amount of mail to be sent, the total amount of mail received, t
 We can find the top 11 individuals must be the company's executives.
 
 ##### 3.9 Internal staff diagram
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/23.png)
+
+Based on the TA's advice, we re-ordered everyone, brought company executives together, and lowered the contrast of the whole image to improve observability.
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/24.png)
+
+According to the previous decision of the senior management, internal relations of staff production, and senior executives separately out.
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/25.png)
+
+
+The high level of communication among top executives shows that previous top-level speculation was correct and that senior executives would not have a well-balanced relationship if some of them were not executives.
+
+### Chapter IV, workload
+
+In order to deal with such a large amount of data, we mainly use python to process data mining. First of all need to send and receive mail when the classification of people, because a person may have more than one trumpet, multiple e-mail number may correspond to a person. We first classify and replace this part of the information. Then use python to mine and count the valuable information of more than 10 million messages. Three pre-python may write four or five thousand lines, the latter part of the drawing mainly used echart, d3.js template to modify and organize. Pro before showing some of the less suitable figure to re-take a more appropriate way to visualize.
+
+After the show, despite the busy week of exams, we also modified several html based tutorials to improve interactivity. And think of several questions given by the TA, some of which we have given our thoughts and discussions have given our thoughts and mentioned in the report.
+
+### Chapter V, Difficulties and Summary
+When I did this project, I actually encountered a lot of difficulties.
+
+In fact, initially we do not have a good command of some web languages such asHTML, CSS, JavaScript and the understanding of the websites is relatively limited. But fortunately these languages are not difficult to learn. Through the project, we finally got a better understanding of these languages.<br/>
+
+Later in the process of doing the questions, we actually did not have a very good solution to the problem at the beginning, and the entire team was in a rather dizzy state. We just started from the Internet to find a lot of visual example, to see what can be used to our data, if you can try it, but later found only more fragmented analysis, did not form a good overall idea .<br/>
+
+The biggest challenge is how to extract and classify valid information from over 10 million pieces of messy e-mail messages. At the beginning of our thinking there was a deviation, that should be grouped in accordance with the year the title information, so there are 15 groups, each group separately carried out is unintelligible. Second, in 2004 and 2005, for example, these two years are still the start-ups of the company. Therefore, it is unscientific to separate these two years. The phased approach to science should be based on turning points. When we figure out the following figure, we take the turning point of the company's development as the dividing line to calculate the word frequency, and the statistical result is convincing.<br/>
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/26.png)
+
+Later, we finally came to form our own thinking, that is, what kind of analysis we should carry out with these figures, and what conclusion we can draw, so that we can think further about new points for visualization.<br/>
+
+Of course, there are some ideas from the final realization is still a long distance, in terms of implementation, we spent a lot of time for Python data analysis, we often use some statistical methods to find some of the data in the law, and then Sex with different maps for visualization.<br/>
+
+One of the difficulties is that the title is mixed in Italian and English. After we screened the key words in different stages, we translated these related words (Italian) into Google Machine and identified some important information with the naked eye, such as the names of some countries (the same country in the mail may have English and Italian Two kinds of representation. Some of the hacking keywords are also carried out separately, and then re-search the massive data statistics.<br/>
+
+Although we encountered a lot of difficulties in this one, we are very grateful to this project, so that we have learned a lot. The project not only brought us a great improvement from the technical level, such as front-end, Python and other programming proficiency increases, but also for our data analysis, data visualization has greatly improved. In fact, the subject is still a relatively raw csv data, which requires us to work on a lot of effort in data processing. As for the selection and design of specific visualization models, a great deal of what teachers say in class is used. To tell the truth, the teacher told a lot about the principles and knowledge of visualization in class. At first glance, it feels very simple and natural. However, it is natural to learn how to visualize. However, after this process of application, Speaking of knowledge has a more profound understanding, this feeling is actually very good.<br/>
+
+Finally, there is a deeper feeling that good visualization must be done while analyzing and analyzing, not from data to conclusion. Based on some preliminary analysis, depending on the specific goals, we hope to add some more features and elements, and then generate more useful information. Good visualization is by no means obtained directly from the data, but rather continuously improved.<br/>
 
 
 ### HACKING TEAM 邮件信息可视化
