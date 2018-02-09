@@ -5,10 +5,15 @@ Luckily, I got 99 scores from this course.
 **This project is displayed by html, please click the index.html**
 **本工程展示利用了html，请点击index.html**
 
+One of charts in html:
+![pic](https://github.com/BestOreo/Pic-for-README.md/blob/master/datamining%26%26infovisualization/10.png)
+
+
 ### HackingTeam Email data Source Download: https://pan.zju.edu.cn/share/7c368fa0035c2aab14919fbd9e
 
+
 ## Data Mining and Visualization of Emails in Hacking Team
-#### Chapter I、Abstract
+### Chapter I、Abstract
 Hacking Team is an information technology company from Milan, Italy, which provides information systems intrusion and surveillance services to government agencies and law enforcement agencies. It helps customers to intercept Internet users, decrypt files, listen to Internet calls such as Skype, and even Turn on the microphone and camera remotely. On July 5, 2015, Hacking Team's official Twitter account was compromised by unidentified individuals, who used it to reveal many of the company's insider information and informed the company that its internal data had been leaked. The first notice states: "Anyway, we have nothing to hide, and we have to publish our emails, files, and source code ..." along with a download link for nearly 400G of data, including the intruder's alleged Internal e-mail, various related documents and source code.
 
 This particular data breach has aroused widespread concern in the community. One of the hot topics is how to decrypt Hacking Team's organizational structure and development process. Hacking Team's in-house email data is an important data source to understand the company, not only reflecting the complex communications network between employees and business partners, but also understanding the company's business content from email content and attachments. We did a preliminary formatting of the original mail data, but analyzing and understanding the mail data is still a very difficult task. Therefore, we provide formatted mail data provided, hope that participants as a data analyst, the use of visual analysis technology to analyze e-mail data to help us understand the history of Hacking Team Company and the various stages of business characteristics, identify the Inside the company's key figures and reasoning about their role and job responsibilities.
